@@ -3,6 +3,43 @@
   "name": "Salam",
   "createdAt": "2026-11-07T20:57:48.943Z",
   "filename": "26e7ea1a-2f1e-461c-aac5-4fde3e1c07c1.json",
-  "geminiStarted": false,
-  "messages": []
+  "geminiStarted": true,
+  "messages": [
+    {
+      "id": "790baaf6-6856-4851-8b2b-7e743717fc1d",
+      "role": "user",
+      "content": "Salam",
+      "status": "pending",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": null,
+      "created_at": "2026-11-07T20:58:35.779Z",
+      "sender": "ios",
+      "is_cancelled": false
+    },
+    {
+      "id": "99a27caa-fe9f-467c-86d1-0a3d33f1848f",
+      "role": "agent",
+      "content": "Salam! Wa alaykum assalam! \n\nHow can I help you today? Whether you're looking to start a new web project, build an application, or work on some code, let me know what you'd like to create!",
+      "status": "completed",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": "790baaf6-6856-4851-8b2b-7e743717fc1d",
+      "created_at": "2026-11-07T20:58:44.391Z",
+      "sender": "macOS",
+      "is_cancelled": false
+    },
+    {
+      "id": "d2a1b727-265b-4fe9-9e3d-5ea748f6d8ef",
+      "role": "user",
+      "content": "Salam",
+      "status": "pending",
+      "model": "gemini-3.8-flash-high",
+      "client_type": "gemini-bridge",
+      "parent_message_id": null,
+      "created_at": "2026-11-07T20:58:44.392Z",
+      "sender": "ios",
+      "is_cancelled": false
+    }
+  ]
 }
