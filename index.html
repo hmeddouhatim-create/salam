@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Deutsch mit Hatim 🇩🇪 | Ta3allum L-Almaniya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d97706;
+      --primary-dark: #b45309;
+      --primary-light: #fef3c7;
+      --german-black: #111827;
+      --german-red: #ef4444;
+      --german-gold: #f59e0b;
+      --bg-main: #0f172a;
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --success: #10b981;
+      --danger: #f43f5e;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 80px;
+      overflow-x: hidden;
+    }
+
+    /* Top German Flag Strip */
+    .flag-bar {
+      height: 6px;
+      display: flex;
+      width: 100%;
+    }
+    .flag-bar .b { flex: 1; background: #000000; }
+    .flag-bar .r { flex: 1; background: #DD0000; }
+    .flag-bar .g { flex: 1; background: #FFCE00; }
+
+    /* Header */
+    header {
+      padding: 1.25rem 1rem;
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .header-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--german-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+    }
+
+    .logo-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #f8fafc, #fcd34d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .badge-user {
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fcd34d;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.25rem 1rem;
+      flex: 1;
+    }
+
+    /* Welcome Hero */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #1e1b4b 50%, #0f172a 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-banner::after {
+      content: '🇩🇪';
+      position: absolute;
+      right: -10px;
+      bottom: -15px;
+      font-size: 7rem;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .hero-subtitle {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .daily-phrase-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .phrase-content .phrase-de {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fef08a;
+    }
+
+    .phrase-content .phrase-ar {
+      font-size: 0.825rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .audio-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--german-gold);
+      border: none;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+    .audio-btn:hover {
+      transform: scale(1.08);
+      background: #fbbf24;
+    }
+    .audio-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Tabs Navigation */
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      padding: 0.65rem 1.15rem;
+      border-radius: 9999px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #111827;
+      border-color: #f59e0b;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Tab Content Panels */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Flashcard Section */
+    .flashcard-wrapper {
+      perspective: 1000px;
+      width: 100%;
+      height: 240px;
+      margin-bottom: 1.25rem;
+      cursor: pointer;
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      border-radius: 20px;
+    }
+
+    .flashcard-wrapper.flipped .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .flashcard-front {
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 1px solid #475569;
+    }
+
+    .flashcard-back {
+      background: linear-gradient(145deg, #1e1b4b, #1e293b);
+      border: 1px solid var(--german-gold);
+      transform: rotateY(180deg);
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-word {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-article-der { color: #60a5fa; }
+    .card-article-die { color: #f472b6; }
+    .card-article-das { color: #4ade80; }
+
+    .card-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .card-trans {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fcd34d;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-example {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      font-style: italic;
+      background: rgba(0,0,0,0.25);
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+    }
+
+    /* Flashcard Controls */
+    .card-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.2s;
+    }
+    .btn-circle:hover {
+      background: #334155;
+      border-color: #64748b;
+    }
+
+    .category-filter {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.75rem;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .chip.active {
+      background: #f59e0b;
+      color: #000;
+      font-weight: 700;
+      border-color: #f59e0b;
+    }
+
+    /* Grammar Section Cards */
+    .grammar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .grammar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .grammar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .grammar-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f8fafc;
+    }
+
+    .article-box {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-pill {
+      flex: 1;
+      padding: 0.65rem 0.5rem;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .article-pill.der { background: rgba(59, 130, 246, 0.2); border: 1px solid #3b82f6; color: #93c5fd; }
+    .article-pill.die { background: rgba(236, 72, 153, 0.2); border: 1px solid #ec4899; color: #f472b6; }
+    .article-pill.das { background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #86efac; }
+
+    .rule-item {
+      font-size: 0.825rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+      padding-left: 0.85rem;
+      position: relative;
+    }
+    .rule-item::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--german-gold);
+    }
+
+    /* Verb Table */
+    .verb-table {
+      width: 100%;
+      font-size: 0.825rem;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    .verb-table th, .verb-table td {
+      padding: 0.4rem 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #334155;
+    }
+    .verb-table th {
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .verb-table td.highlight {
+      color: #fcd34d;
+      font-weight: 600;
+    }
+
+    /* Dialogue Cards */
+    .dialogue-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .dialogue-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+
+    .dialogue-bubble {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      align-items: flex-start;
+    }
+
+    .speaker-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .speaker-avatar.person-a { background: #3b82f6; color: #fff; }
+    .speaker-avatar.person-b { background: #f59e0b; color: #000; }
+
+    .bubble-content {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 0.65rem 0.85rem;
+      flex: 1;
+    }
+
+    .bubble-content .bubble-de {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .bubble-content .bubble-ar {
+      font-size: 0.775rem;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    .mini-audio {
+      background: none;
+      border: none;
+      color: var(--german-gold);
+      cursor: pointer;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Quiz Container */
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+
+    .quiz-progress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.825rem;
+      color: #94a3b8;
+    }
+
+    .quiz-score-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+
+    .quiz-question {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .quiz-option {
+      padding: 0.85rem 1rem;
+      background: #0f172a;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      color: #f8fafc;
+      font-size: 0.925rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--german-gold);
+      background: #1e293b;
+    }
+
+    .quiz-option.correct {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: #10b981 !important;
+      color: #6ee7b7 !important;
+    }
+
+    .quiz-option.wrong {
+      background: rgba(244, 63, 94, 0.2) !important;
+      border-color: #f43f5e !important;
+      color: #fda4af !important;
+    }
+
+    .quiz-explanation {
+      margin-top: 1rem;
+      padding: 0.85rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .quiz-explanation.show {
+      display: block;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid #475569;
+    }
+
+    .btn-next-quiz {
+      width: 100%;
+      padding: 0.85rem;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border: none;
+      border-radius: 12px;
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: none;
+      transition: all 0.2s;
+    }
+    .btn-next-quiz.show {
+      display: block;
+    }
+
+    /* Vocabulary Search & List */
+    .vocab-search-box {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .vocab-input {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 2.6rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .vocab-input:focus {
+      border-color: var(--german-gold);
+    }
+
+    .vocab-search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #64748b;
+    }
+
+    .vocab-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .vocab-row {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .vocab-row:hover {
+      border-color: #475569;
+      background: #253348;
+    }
+
+    .vocab-main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vocab-de {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .vocab-ar {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    /* Fixed Bottom Nav (Mobile Friendly) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem 0.25rem env(safe-area-inset-bottom, 0.5rem);
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 0.68rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.35rem 0.65rem;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+
+    .nav-item.active {
+      color: var(--german-gold);
+    }
+
+    .nav-item svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.2;
+    }
+
+    /* Quick toast */
+    .toast {
+      position: fixed;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(16, 185, 129, 0.95);
+      color: #000;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.825rem;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top German Flag Strip -->
+  <div class="flag-bar">
+    <div class="b"></div>
+    <div class="r"></div>
+    <div class="g"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-badge">🇩🇪</div>
+        <div class="logo-text">
+          <h1>Deutsch mit Hatim</h1>
+          <p>Almaniya b Darija • Nivo A1 / A2</p>
+        </div>
+      </div>
+      <div class="badge-user">
+        <span>👤 Hatim</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Welcome Hero -->
+    <section class="hero-banner">
+      <div class="hero-title">Hallo Hatim! 👋 Willkommen</div>
+      <div class="hero-subtitle">
+        Marhba bik! Had l-app m9add lik m3a sot (Prononciation), qawa3id b Darija, quiz, w hiwarat bash t-maîtriser l'Allemand b sor3a.
+      </div>
+
+      <div class="daily-phrase-box">
+        <div class="phrase-content">
+          <div class="phrase-de" id="daily-de">Übung macht den Meister!</div>
+          <div class="phrase-ar" id="daily-ar">L-moumarasa hiya sser d naja7 (Practice makes perfect)</div>
+        </div>
+        <button class="audio-btn" onclick="speakText(document.getElementById('daily-de').innerText)" title="Sme3 n-noṭq">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Top Sub-Tabs -->
+    <div class="nav-tabs" id="tabList">
+      <button class="tab-btn active" onclick="switchTab('cards')">
+        <span>🃏</span> Flashcards
+      </button>
+      <button class="tab-btn" onclick="switchTab('grammar')">
+        <span>📖</span> L-Qawa3id (Grammatik)
+      </button>
+      <button class="tab-btn" onclick="switchTab('dialogues')">
+        <span>💬</span> Hiwarat (Dialoge)
+      </button>
+      <button class="tab-btn" onclick="switchTab('quiz')">
+        <span>🎯</span> Quiz & Test
+      </button>
+      <button class="tab-btn" onclick="switchTab('vocab')">
+        <span>📚</span> Vocabulaire (Dictionnaire)
+      </button>
+    </div>
+
+    <!-- TAB 1: FLASHCARDS -->
+    <div id="tab-cards" class="tab-pane active">
+      <div class="category-filter" id="cardCategories">
+        <span class="chip active" onclick="filterCards('all', this)">Kolshi (All)</span>
+        <span class="chip" onclick="filterCards('greetings', this)">Tahiyyat (Begrüßung)</span>
+        <span class="chip" onclick="filterCards('daily', this)">L-7ayat l-yawmiya</span>
+        <span class="chip" onclick="filterCards('food', this)">L-Makla (Essen)</span>
+        <span class="chip" onclick="filterCards('numbers', this)">L-A3dad (Zahlen)</span>
+      </div>
+
+      <div class="flashcard-wrapper" id="cardWrapper" onclick="toggleCardFlip()">
+        <div class="flashcard-inner" id="cardInner">
+          <!-- Front -->
+          <div class="flashcard-front">
+            <span class="card-tag" id="cardCategory">Begrüßung</span>
+            <div class="card-word" id="cardGerman">Guten Tag!</div>
+            <div class="card-hint">Kliké 3la l-carte bash tchouf l-ma3na</div>
+          </div>
+          <!-- Back -->
+          <div class="flashcard-back">
+            <span class="card-tag">Ma3na b Darija</span>
+            <div class="card-trans" id="cardDarija">Salamo 3alaykom / Nhark mbrok</div>
+            <div class="card-example" id="cardExample">„Guten Tag, Herr Schmidt!”</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-controls">
+        <button class="btn-circle" onclick="prevCard()" title="L-kart l-sabaq">←</button>
+        <button class="btn-circle" onclick="speakCurrentCard(event)" title="Sme3 n-noṭq" style="background: var(--german-gold); color: #000; border: none;">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+        <button class="btn-circle" onclick="nextCard()" title="L-kart l-mouqbil">→</button>
+      </div>
+
+      <p style="text-align: center; font-size: 0.8rem; color: #64748b;" id="cardCounter">Kart 1 mn 10</p>
+    </div>
+
+    <!-- TAB 2: GRAMMAR -->
+    <div id="tab-grammar" class="tab-pane">
+      <div class="grammar-grid">
+        <!-- 1. Articles -->
+        <div class="grammar-card">
+          <h3><span>🎨</span> Les Articles (der, die, das)</h3>
+          <p style="font-size: 0.825rem; color: #94a3b8; margin-bottom: 0.75rem;">
+            F l-Almaniya kol ism 3ndo "Genre" dyalo khas darouri t7fdou bih:
+          </p>
+          <div class="article-box">
+            <div class="article-pill der">
+              der<br><span style="font-size:0.7rem; font-weight:normal;">Moudhakkar (M)</span>
+            </div>
+            <div class="article-pill die">
+              die<br><span style="font-size:0.7rem; font-weight:normal;">Mou'annath (F)</span>
+            </div>
+            <div class="article-pill das">
+              das<br><span style="font-size:0.7rem; font-weight:normal;">Moutahayid (N)</span>
+            </div>
+          </div>
+          <div class="rule-item"><strong>der</strong>: Rijal, Ayam l-ousbou3, Chohour (der Mann, der Montag).</div>
+          <div class="rule-item"><strong>die</strong>: Nsa, l-kalamat li fihom (-ung, -heit, -keit, -schaft, -tion) bhal <em>die Zeitung</em>. Jam3 kamel f l-Almaniya kayakhoud <strong>die</strong>!</div>
+          <div class="rule-item"><strong>das</strong>: Drori sghar, l-kalamat li fihom (-chen, -ment) bhal <em>das Mädchen, das Buch</em>.</div>
+        </div>
+
+        <!-- 2. Verbs sein & haben -->
+        <div class="grammar-card">
+          <h3><span>⚡</span> Af3al Asasiya: sein & haben</h3>
+          <p style="font-size: 0.825rem; color: #94a3b8; margin-bottom: 0.5rem;">
+            Aham jouj af3al f l-Almaniya (Être & Avoir):
+          </p>
+          <table class="verb-table">
+            <thead>
+              <tr>
+                <th>Damir (Pronoun)</th>
+                <th>sein (Être / Koun)</th>
+                <th>haben (Avoir / 3nd)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ich (Ana)</td>
+                <td class="highlight">bin</td>
+                <td class="highlight">habe</td>
+              </tr>
+              <tr>
+                <td>du (Nta/Nti)</td>
+                <td class="highlight">bist</td>
+                <td class="highlight">hast</td>
+              </tr>
+              <tr>
+                <td>er / sie / es (Howa/Hiya)</td>
+                <td class="highlight">ist</td>
+                <td class="highlight">hat</td>
+              </tr>
+              <tr>
+                <td>wir (7na)</td>
+                <td class="highlight">sind</td>
+                <td class="highlight">haben</td>
+              </tr>
+              <tr>
+                <td>ihr (Ntouma)</td>
+                <td class="highlight">seid</td>
+                <td class="highlight">habt</td>
+              </tr>
+              <tr>
+                <td>sie / Sie (Homa / Hadratok)</td>
+                <td class="highlight">sind</td>
+                <td class="highlight">haben</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3. Sentence Structure -->
+        <div class="grammar-card">
+          <h3><span>🧩</span> Qaidat Tarkib L-Joumla (Satzbau)</h3>
+          <div class="rule-item"><strong>L-Fi3l dima f l-martaba 2 (Position 2)!</strong> Hadhi aham qa3ida f l-joumla l-khabariya:</div>
+          <div style="background: #0f172a; padding: 0.65rem; border-radius: 8px; margin: 0.5rem 0; font-size: 0.825rem;">
+            <span style="color: #60a5fa;">Ich</span> <span style="color: #f59e0b; font-weight:700;">lerne</span> <span style="color: #34d399;">Deutsch</span>.<br>
+            <span style="color: #60a5fa;">Heute</span> <span style="color: #f59e0b; font-weight:700;">lerne</span> <span style="color: #34d399;">ich Deutsch</span>. (L-fi3l dima r9m 2!)
+          </div>
+          <div class="rule-item">F Sou'al (Ja/Nein Frage): L-fi3l kayji howa l-awwal (Position 1): <em>Lernst du Deutsch?</em></div>
+        </div>
+
+        <!-- 4. Cases: Nominativ vs Akkusativ -->
+        <div class="grammar-card">
+          <h3><span>⚖️</span> L-A7wal (Nominativ & Akkusativ)</h3>
+          <div class="rule-item"><strong>Nominativ (L-Fa3il / Sujet):</strong> der, die, das, die.</div>
+          <div class="rule-item"><strong>Akkusativ (L-Maf3oul bih / COD):</strong> Gha <strong>der</strong> li katwlli <strong>den</strong>! L-baqi makaytbeddelch:</div>
+          <div style="background: #0f172a; padding: 0.65rem; border-radius: 8px; margin: 0.5rem 0; font-size: 0.825rem;">
+            Ich habe <strong style="color: #f43f5e;">einen</strong> Apfel (der Apfel → einen Apfel).<br>
+            Ich trinke <strong style="color: #60a5fa;">den</strong> Kaffee (der Kaffee → den Kaffee).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: DIALOGUES -->
+    <div id="tab-dialogues" class="tab-pane">
+      <!-- Dialogue 1 -->
+      <div class="dialogue-card">
+        <div class="dialogue-header">
+          <strong style="color: #fcd34d;">1. Sich vorstellen (T3rif b n-nafs)</strong>
+          <span style="font-size: 0.75rem; color: #94a3b8;">Niveau A1</span>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-a">A</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Hallo! Wie heißt du?</span>
+              <button class="mini-audio" onclick="speakText('Hallo! Wie heißt du?')">🔊</button>
+            </div>
+            <div class="bubble-ar">Ahlan! Chnou smitk?</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-b">H</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Ich heiße Hatim. Und du?</span>
+              <button class="mini-audio" onclick="speakText('Ich heiße Hatim. Und du?')">🔊</button>
+            </div>
+            <div class="bubble-ar">Smiti Hatim. W nta?</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-a">A</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Ich bin Lukas. Woher kommst du?</span>
+              <button class="mini-audio" onclick="speakText('Ich bin Lukas. Woher kommst du?')">🔊</button>
+            </div>
+            <div class="bubble-ar">Ana Lukas. Mnin nta?</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-b">H</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Ich komme aus Marokko, aber ich wohne in Deutschland.</span>
+              <button class="mini-audio" onclick="speakText('Ich komme aus Marokko, aber ich wohne in Deutschland.')">🔊</button>
+            </div>
+            <div class="bubble-ar">Ana mn l-Meghrib, walakin sakin f Almaniya.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialogue 2 -->
+      <div class="dialogue-card">
+        <div class="dialogue-header">
+          <strong style="color: #fcd34d;">2. Im Café (F l-Qahwa)</strong>
+          <span style="font-size: 0.75rem; color: #94a3b8;">Talab Qahwa</span>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-a">W</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Guten Tag! Was möchten Sie bestellen?</span>
+              <button class="mini-audio" onclick="speakText('Guten Tag! Was möchten Sie bestellen?')">🔊</button>
+            </div>
+            <div class="bubble-ar">Nhark mbrok! Chnou bghiti tcommander?</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-b">H</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Ich möchte einen Kaffee mit Milch, bitte.</span>
+              <button class="mini-audio" onclick="speakText('Ich möchte einen Kaffee mit Milch, bitte.')">🔊</button>
+            </div>
+            <div class="bubble-ar">Bghit qahwa b l-7lib, 3afak.</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-a">W</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Sehr gerne! Sonst noch etwas?</span>
+              <button class="mini-audio" onclick="speakText('Sehr gerne! Sonst noch etwas?')">🔊</button>
+            </div>
+            <div class="bubble-ar">B kol fara7! Chi haja khra?</div>
+          </div>
+        </div>
+
+        <div class="dialogue-bubble">
+          <div class="speaker-avatar person-b">H</div>
+          <div class="bubble-content">
+            <div class="bubble-de">
+              <span>Nein, danke. Was kostet das?</span>
+              <button class="mini-audio" onclick="speakText('Nein, danke. Was kostet das?')">🔊</button>
+            </div>
+            <div class="bubble-ar">La, chokran. Bchhal hadchi?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: QUIZ -->
+    <div id="tab-quiz" class="tab-pane">
+      <div class="quiz-card">
+        <div class="quiz-progress">
+          <span id="quizIndex">Question 1 / 5</span>
+          <span class="quiz-score-badge" id="quizScoreBadge">Score: 0</span>
+        </div>
+
+        <div class="quiz-question" id="quizQuestionText">
+          Loading question...
+        </div>
+
+        <div class="quiz-options" id="quizOptionsContainer">
+          <!-- Options injected by JS -->
+        </div>
+
+        <div class="quiz-explanation" id="quizExplanation"></div>
+
+        <button class="btn-next-quiz" id="quizNextBtn" onclick="nextQuizQuestion()">
+          Sou'al li ba3do →
+        </button>
+      </div>
+    </div>
+
+    <!-- TAB 5: VOCABULARY SEARCH -->
+    <div id="tab-vocab" class="tab-pane">
+      <div class="vocab-search-box">
+        <svg class="vocab-search-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="vocabInput" class="vocab-input" placeholder="Qelleb 3la kelma (b Allemand wla Darija)..." oninput="searchVocab()">
+      </div>
+
+      <div class="vocab-list" id="vocabList">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="switchTab('cards')" id="nav-cards">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+      <span>Cards</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('grammar')" id="nav-grammar">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      <span>Qawa3id</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('dialogues')" id="nav-dialogues">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <span>Hiwarat</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('quiz')" id="nav-quiz">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      <span>Quiz</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('vocab')" id="nav-vocab">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+      <span>Kalamat</span>
+    </button>
+  </nav>
+
+  <!-- Audio Toast -->
+  <div class="toast" id="toast">Prononciation en cours...</div>
+
+  <script>
+    // Audio Text to Speech helper
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel(); // Stop any pending speech
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'de-DE';
+        utterance.rate = 0.88; // Slightly slower for language learners
+        window.speechSynthesis.speak(utterance);
+        showToast("🔊 " + text);
+      } else {
+        showToast("Audio machi supporté f had l-browser");
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    }
+
+    // Flashcard Data
+    const cardData = [
+      { category: 'greetings', tag: 'Begrüßung', de: 'Guten Morgen!', ar: 'Sba7 l-khir', ex: 'Guten Morgen, wie geht es dir?' },
+      { category: 'greetings', tag: 'Begrüßung', de: 'Wie geht es Ihnen?', ar: 'Kif dayr Hadratok? (Formel)', ex: 'Guten Tag, Herr Müller. Wie geht es Ihnen?' },
+      { category: 'greetings', tag: 'Begrüßung', de: 'Tschüss! / Auf Wiedersehen!', ar: 'Bslama! / Ila l-liqa', ex: 'Tschüss, bis morgen!' },
+      { category: 'daily', tag: 'Alltag', de: 'Entschuldigung!', ar: 'Sme7 liya / pardon', ex: 'Entschuldigung, wo ist der Bahnhof?' },
+      { category: 'daily', tag: 'Alltag', de: 'Ich verstehe nicht.', ar: 'Mafhemtch.', ex: 'Können Sie das bitte wiederholen? Ich verstehe nicht.' },
+      { category: 'daily', tag: 'Alltag', de: 'Vielen Dank!', ar: 'Chokran bzaf!', ex: 'Vielen Dank für Ihre Hilfe!' },
+      { category: 'food', tag: 'Essen & Trinken', de: 'der Kaffee', ar: 'L-Qahwa', ex: 'Ich trinke morgens einen Kaffee.' },
+      { category: 'food', tag: 'Essen & Trinken', de: 'das Wasser', ar: 'L-Ma', ex: 'Ein Glas Wasser, bitte.' },
+      { category: 'food', tag: 'Essen & Trinken', de: 'Guten Appetit!', ar: 'B sse7a w rra7a!', ex: 'Das Essen schmeckt lecker, guten Appetit!' },
+      { category: 'numbers', tag: 'Zahlen', de: 'Eins, Zwei, Drei, Vier, Fünf', ar: 'Wahed, Jouj, Tlata, Rb3a, Khemsa', ex: '1, 2, 3, 4, 5... Deutsch ist einfach!' }
+    ];
+
+    let currentCardIndex = 0;
+    let filteredCards = [...cardData];
+
+    function updateCardUI() {
+      if (filteredCards.length === 0) return;
+      const card = filteredCards[currentCardIndex];
+      const wrapper = document.getElementById('cardWrapper');
+      wrapper.classList.remove('flipped');
+
+      document.getElementById('cardCategory').innerText = card.tag;
+      document.getElementById('cardGerman').innerText = card.de;
+      document.getElementById('cardDarija').innerText = card.ar;
+      document.getElementById('cardExample').innerText = `„${card.ex}”`;
+      document.getElementById('cardCounter').innerText = `Kart ${currentCardIndex + 1} mn ${filteredCards.length}`;
+    }
+
+    function toggleCardFlip() {
+      document.getElementById('cardWrapper').classList.toggle('flipped');
+    }
+
+    function nextCard() {
+      currentCardIndex = (currentCardIndex + 1) % filteredCards.length;
+      updateCardUI();
+    }
+
+    function prevCard() {
+      currentCardIndex = (currentCardIndex - 1 + filteredCards.length) % filteredCards.length;
+      updateCardUI();
+    }
+
+    function speakCurrentCard(e) {
+      e.stopPropagation();
+      const card = filteredCards[currentCardIndex];
+      speakText(card.de);
+    }
+
+    function filterCards(cat, btn) {
+      document.querySelectorAll('#cardCategories .chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (cat === 'all') {
+        filteredCards = [...cardData];
+      } else {
+        filteredCards = cardData.filter(c => c.category === cat);
+      }
+      currentCardIndex = 0;
+      updateCardUI();
+    }
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      // Panes
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      const activePane = document.getElementById('tab-' + tabId);
+      if (activePane) activePane.classList.add('active');
+
+      // Top Tab buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
+      const mapping = ['cards', 'grammar', 'dialogues', 'quiz', 'vocab'];
+      const index = mapping.indexOf(tabId);
+      if (index >= 0 && tabBtns[index]) {
+        tabBtns[index].classList.add('active');
+      }
+
+      // Bottom Nav items
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      const navItem = document.getElementById('nav-' + tabId);
+      if (navItem) navItem.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Quiz Engine
+    const quizQuestions = [
+      {
+        question: "Achmen Article kayji m3a kelmet 'Mann' (Rajel)?",
+        options: ["der Mann", "die Mann", "das Mann", "den Mann"],
+        correct: 0,
+        explanation: "Rajel (moudhakkar) kayakhoud dima 'der': der Mann."
+      },
+      {
+        question: "Kifach kangoulo 'Ana mn l-Meghrib' b l-Almaniya?",
+        options: [
+          "Ich gehe nach Marokko.",
+          "Ich komme aus Marokko.",
+          "Ich wohne in Marokko.",
+          "Ich heiße Marokko."
+        ],
+        correct: 1,
+        explanation: "'aus' kat3ni 'mn' m3a l-boldan: Ich komme aus Marokko."
+      },
+      {
+        question: "Tasrif fi3l 'haben' m3a 'du' (Nta/Nti):",
+        options: ["du habst", "du hat", "du hast", "du habt"],
+        correct: 2,
+        explanation: "Fi3l haben m3a du kaywlli: du hast (bhal: Du hast Zeit)."
+      },
+      {
+        question: "Fin kayji l-Fi3l f l-joumla l-khabariya l-3adiya?",
+        options: [
+          "F l-martaba l-oula (Position 1)",
+          "F l-martaba t-taniya (Position 2)",
+          "F l-akhir dyal l-joumla",
+          "Fin ma bghina"
+        ],
+        correct: 1,
+        explanation: "Qa3ida asasiya: L-fi3l dima Position 2 (bhal: Ich lerne Deutsch / Heute lerne ich Deutsch)."
+      },
+      {
+        question: "Chnou l-ma3na dyal 'Bitte' b Darija?",
+        options: [
+          "Chokran",
+          "3afak / Tfaddal",
+          "Bslama",
+          "Sba7 l-khir"
+        ],
+        correct: 1,
+        explanation: "'Bitte' kat3ni 3afak (S'il vous plaît) wla Tfaddal (De rien / You're welcome)."
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+    let answered = false;
+
+    function renderQuiz() {
+      const q = quizQuestions[currentQuizIndex];
+      answered = false;
+
+      document.getElementById('quizIndex').innerText = `Sou'al ${currentQuizIndex + 1} mn ${quizQuestions.length}`;
+      document.getElementById('quizScoreBadge').innerText = `Score: ${quizScore}/${quizQuestions.length}`;
+      document.getElementById('quizQuestionText').innerText = q.question;
+
+      const container = document.getElementById('quizOptionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.innerText = opt;
+        btn.onclick = () => selectQuizAnswer(idx, btn);
+        container.appendChild(btn);
+      });
+
+      const exp = document.getElementById('quizExplanation');
+      exp.className = 'quiz-explanation';
+      exp.innerText = '';
+
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.classList.remove('show');
+    }
+
+    function selectQuizAnswer(selectedIdx, clickedBtn) {
+      if (answered) return;
+      answered = true;
+
+      const q = quizQuestions[currentQuizIndex];
+      const buttons = document.querySelectorAll('.quiz-option');
+
+      if (selectedIdx === q.correct) {
+        clickedBtn.classList.add('correct');
+        quizScore++;
+        document.getElementById('quizScoreBadge').innerText = `Score: ${quizScore}/${quizQuestions.length}`;
+      } else {
+        clickedBtn.classList.add('wrong');
+        buttons[q.correct].classList.add('correct');
+      }
+
+      const exp = document.getElementById('quizExplanation');
+      exp.innerText = (selectedIdx === q.correct ? "✅ Mumtaz! " : "❌ Ghalat! ") + q.explanation;
+      exp.classList.add('show');
+
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.classList.add('show');
+      if (currentQuizIndex === quizQuestions.length - 1) {
+        nextBtn.innerText = "3awed l-Quiz mn l-lowel 🔄";
+      } else {
+        nextBtn.innerText = "Sou'al li ba3do →";
+      }
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizIndex < quizQuestions.length - 1) {
+        currentQuizIndex++;
+      } else {
+        currentQuizIndex = 0;
+        quizScore = 0;
+      }
+      renderQuiz();
+    }
+
+    // Vocabulary Dictionary
+    const fullVocab = [
+      { de: 'Hallo / Guten Tag', ar: 'Ahlan / Salam', cat: 'Tahiyya' },
+      { de: 'Wie geht\'s?', ar: 'Kif dayr?', cat: 'Tahiyya' },
+      { de: 'Gut, danke!', ar: 'Bikhir, chokran!', cat: 'Tahiyya' },
+      { de: 'Auf Wiedersehen', ar: 'Ila l-liqa', cat: 'Tahiyya' },
+      { de: 'Gute Nacht', ar: 'Layla sa3ida / Tasba7 3la khir', cat: 'Tahiyya' },
+      { de: 'der Mann', ar: 'Rajel', cat: 'Asma' },
+      { de: 'die Frau', ar: 'L-Mra', cat: 'Asma' },
+      { de: 'das Kind', ar: 'D-Drri sghir', cat: 'Asma' },
+      { de: 'das Haus', ar: 'D-Dar', cat: 'Asma' },
+      { de: 'das Auto', ar: 'T-Tonobil', cat: 'Asma' },
+      { de: 'die Schule', ar: 'L-Madrasa', cat: 'Asma' },
+      { de: 'die Arbeit', ar: 'L-Khedma', cat: 'Asma' },
+      { de: 'das Geld', ar: 'L-Flous', cat: 'Asma' },
+      { de: 'das Buch', ar: 'L-Ktab', cat: 'Asma' },
+      { de: 'lernen', ar: 'T3ellem / Qra', cat: 'Af3al' },
+      { de: 'sprechen', ar: 'Hder / Tkellet', cat: 'Af3al' },
+      { de: 'verstehen', ar: 'Fhem', cat: 'Af3al' },
+      { de: 'wohnen', ar: 'Sken', cat: 'Af3al' },
+      { de: 'arbeiten', ar: 'Khedem', cat: 'Af3al' },
+      { de: 'essen', ar: 'Kla', cat: 'Af3al' },
+      { de: 'trinken', ar: 'Chreb', cat: 'Af3al' },
+      { de: 'gehen', ar: 'Mcha', cat: 'Af3al' },
+      { de: 'kommen', ar: 'Ja', cat: 'Af3al' },
+      { de: 'haben', ar: '3ndou (avoir)', cat: 'Af3al' },
+      { de: 'sein', ar: 'Kan (être)', cat: 'Af3al' },
+      { de: 'Ja / Nein', ar: 'Iyeh / La', cat: 'Mofradat' },
+      { de: 'Bitte / Danke', ar: '3afak / Chokran', cat: 'Mofradat' },
+      { de: 'Entschuldigung', ar: 'Sme7 lia', cat: 'Mofradat' },
+      { de: 'Hilfe!', ar: 'L-3awn / 3tqou!', cat: 'Mofradat' },
+      { de: 'Ich liebe Deutsch', ar: 'Kanbghi l-Almaniya', cat: 'Jomal' }
+    ];
+
+    function renderVocab(items) {
+      const container = document.getElementById('vocabList');
+      container.innerHTML = '';
+      if (items.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding: 2rem; color: #64748b;">Malkinash had l-kelma</div>`;
+        return;
+      }
+      items.forEach(v => {
+        const row = document.createElement('div');
+        row.className = 'vocab-row';
+        row.innerHTML = `
+          <div class="vocab-main">
+            <div class="vocab-de">
+              <span>${v.de}</span>
+            </div>
+            <div class="vocab-ar">${v.ar} • <span style="font-size: 0.7rem; color: #64748b;">${v.cat}</span></div>
+          </div>
+          <button class="mini-audio" onclick="speakText('${v.de.replace(/'/g, "\\'")}')" style="font-size: 1.1rem; padding: 6px;">🔊</button>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function searchVocab() {
+      const query = document.getElementById('vocabInput').value.toLowerCase().trim();
+      if (!query) {
+        renderVocab(fullVocab);
+        return;
+      }
+      const filtered = fullVocab.filter(v =>
+        v.de.toLowerCase().includes(query) ||
+        v.ar.toLowerCase().includes(query) ||
+        v.cat.toLowerCase().includes(query)
+      );
+      renderVocab(filtered);
+    }
+
+    // Initialize
+    updateCardUI();
+    renderQuiz();
+    renderVocab(fullVocab);
+  </script>
+</body>
+</html>
